@@ -21,7 +21,10 @@ export default function TopNavBar() {
 
   return (
     <nav className="bg-white shadow dark:bg-gray-800">
-      <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
+      <div
+        className="container flex items-center justify-center mx-auto text-gray-600 capitalize dark:text-gray-300"
+        style={{ height: "var(--navbar-height)" }}
+      >
         <Link
           href="/"
           className={`border-b-2 text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6 ${
