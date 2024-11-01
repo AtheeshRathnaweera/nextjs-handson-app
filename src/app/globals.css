@@ -15,3 +15,15 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.top-nav-bar {
+  background-color: #353535;
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark .top-nav-bar {
+      background-color: transparent;
+      color: white;
+  }
+}
