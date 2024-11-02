@@ -8,6 +8,7 @@ export default function UserIpInfo() {
 
   useEffect(() => {
     const fetchIpData = async () => {
+      return;
       // API call to get the current user IP
       const userIpResponse = await fetch("https://api.ipify.org")
       if (!userIpResponse.ok) {
