@@ -19,7 +19,7 @@ const config: Config = {
             visibility: "hidden"
           },
           "100%": {
-            width: "100%"
+            width: "110%"
           }
         },
         blink: {
