@@ -2,6 +2,7 @@ import "server-only";
 
 import APODNasa from "./_components/APODNasa";
 import { Suspense } from "react";
+import DateFact from "./_components/DateFact";
 
 export default function Page() {
   return (
@@ -16,9 +17,12 @@ export default function Page() {
           nonsense!
         </p>
       </div>
-      <div className="flex">
+      <div className="flex gap-6">
         <Suspense fallback={<p>Loading APOD...</p>}>
           <APODNasa />
+        </Suspense>
+        <Suspense fallback={<p>Loading Date Fact...</p>}>
+          <DateFact />
         </Suspense>
       </div>
     </div>
