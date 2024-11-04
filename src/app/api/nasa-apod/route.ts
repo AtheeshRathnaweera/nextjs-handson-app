@@ -1,5 +1,9 @@
 import { plainToInstance } from 'class-transformer';
 import { APODResponse } from '../_dto/APODResponse';
+import { HttpErrorCode } from '@/app/_constants/HttpErrorCode';
+import { HttpException } from '../_exceptions/HttpException';
+import { NextResponse } from 'next/server';
+import { ExternalApiException } from '../_exceptions/ExternalApiException';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: Request) {
@@ -8,16 +12,19 @@ export async function GET(request: Request) {
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
-      throw new Error('Failed to fetch APOD data');
+      throw new ExternalApiException('Failed to retrieve data from Public NASA API', response.status);
     }
 
     const data = await response.json();
     const apodResponse = plainToInstance(APODResponse, data);
-    return Response.json(apodResponse)
+
+    return NextResponse.json(apodResponse);
   } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: 'Failed to fetch APOD data. Error occurred.' }), {
-      status: 500,
-    });
+    console.error("Error fetching APOD:", error);
+    
+    if (error instanceof HttpException) {
+      return NextResponse.json({ error: error.message, errorCode: error.errorCode, errors: error.errors }, { status: error.statusCode });
+    }
+    return NextResponse.json({ error: 'Internal Server Error', errorCode: HttpErrorCode.FETCH_FAILED }, { status: 500 });
   }
 }
