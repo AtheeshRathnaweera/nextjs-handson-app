@@ -11,7 +11,7 @@ export default function APODNasa() {
   useEffect(() => {
     const fetchApodData = async () => {
       // API call to get the current user IP
-      const apodResponse = await fetch("/api/NasaAPOD");
+      const apodResponse = await fetch("/api/nasa-apod");
       if (!apodResponse.ok) {
         throw new Error("Failed to fetch APOD data");
       }

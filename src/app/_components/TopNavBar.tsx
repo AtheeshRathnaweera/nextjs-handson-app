@@ -38,9 +38,9 @@ export default function TopNavBar() {
           home
         </Link>
         <Link
-          href="/random_delights"
+          href="/random-delights"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
-            useActivePath("/random_delights")
+            useActivePath("/random-delights")
               ? "border-white dark:border-white"
               : "border-transparent hover:border-white dark:hover:border-white"
           }`}
