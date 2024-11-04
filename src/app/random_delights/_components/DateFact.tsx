@@ -41,7 +41,7 @@ export default function DateFact() {
           <>
             <div className="relative">
               <Image
-                className="w-full h-64 object-cover hover:scale-105 transform transition-all duration-300"
+                className="w-full h-64 object-cover"
                 src="/date_fact_bg.jpg"
                 alt="Next.js logo"
                 width={180}
