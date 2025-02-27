@@ -22,7 +22,7 @@ export default function TopNavBar() {
   }
 
   return (
-    <nav className="shadow">
+    <nav className="top-nav-bar">
       <div
         className="container flex items-center justify-center mx-auto capitalize"
         style={{ height: "var(--navbar-height)" }}
@@ -31,7 +31,7 @@ export default function TopNavBar() {
           href="/"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/")
-              ? "border-black dark:border-white"
+              ? "border-grey dark:border-white"
               : "border-transparent hover:border-black dark:hover:border-white"
           }`}
         >
