@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import TopNavBar from "./_components/TopNavBar";
 import { Providers } from "./providers";
+import UserIpInfo from "./_components/UserIpInfo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <Providers>
           <TopNavBar />
+          <UserIpInfo />
           <main className="flex flex-col main-content">{children}</main>
         </Providers>
       </body>
