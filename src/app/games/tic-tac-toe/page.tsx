@@ -1,4 +1,6 @@
 // `app/tictactoe/page.tsx` is the UI for the `/tictactoe` URL
+"use client";
+
 // import { useState } from "react";
 
 export default function Page() {
