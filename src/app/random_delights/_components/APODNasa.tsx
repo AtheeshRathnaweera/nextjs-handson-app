@@ -37,7 +37,7 @@ export default function APODNasa() {
           <>
             <div className="relative">
               <Image
-                className="w-full h-64 object-cover hover:scale-105 transform transition-all duration-300"
+                className="w-full h-64 object-cover"
                 src={apodData.url}
                 alt="Next.js logo"
                 width={180}
