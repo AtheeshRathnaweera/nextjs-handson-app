@@ -31,37 +31,43 @@ export default function TopNavBar() {
           href="/"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/")
-              ? "border-grey dark:border-white"
-              : "border-transparent hover:border-grey dark:hover:border-white"
+              ? "border-white dark:border-white"
+              : "border-transparent hover:border-white dark:hover:border-white"
           }`}
         >
           home
         </Link>
-
+        <Link
+          href="/random_delights"
+          className={`border-b-2 mx-1.5 sm:mx-6 ${
+            useActivePath("/random_delights")
+              ? "border-white dark:border-white"
+              : "border-transparent hover:border-white dark:hover:border-white"
+          }`}
+        >
+          Random Delights
+        </Link>
         <Link
           href="/games"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/games")
-              ? "border-grey dark:border-white"
-              : "border-transparent hover:border-grey dark:hover:border-white"
+              ? "border-white dark:border-white"
+              : "border-transparent hover:border-white dark:hover:border-white"
           }`}
         >
           games
         </Link>
-
         <Link
           href="/about"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/about")
-              ? "border-grey dark:border-white"
-              : "border-transparent hover:border-grey dark:hover:border-white"
+              ? "border-white dark:border-white"
+              : "border-transparent hover:border-white dark:hover:border-white"
           }`}
         >
           about
         </Link>
-
         <HiOutlineUserCircle className="h-6 w-6 mx-1.5 sm:mx-6 cursor-pointer" />
-
         <div className="mx-1.5 sm:mx-6">
           <ThemeSwitcher />
         </div>
