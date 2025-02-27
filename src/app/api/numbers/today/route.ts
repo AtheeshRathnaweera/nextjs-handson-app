@@ -1,29 +1,35 @@
+import { NextResponse } from 'next/server';
 import { TodaysFactResponse } from '../../_dto/TodaysFactResponse';
+import { HttpErrorCode } from '../../../_constants/HttpErrorCode';
+import { HttpException } from '../../_exceptions/HttpException';
+import { ExternalApiException } from '../../_exceptions/ExternalApiException';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: Request) {
-  try {
-    const today = new Date();
-    const day: number = today.getDate();
-    const month: number = today.getMonth() + 1;
+  const today = new Date();
+  const day: number = today.getDate();
+  const month: number = today.getMonth() + 1;
+  const apiUrl = `http://numbersapi.com/${month}/${day}/date`;
 
-    const apiUrl = `http://numbersapi.com/${month}/${day}/date`;
+  try {
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
-      throw new Error('Failed to fetch todays fact data');
+      throw new ExternalApiException('Failed to retrieve data from Numbers API', response.status);
     }
 
-    const data = await response.text();
+    const data: string = await response.text();
     const factResponse = new TodaysFactResponse();
     factResponse.fact = data;
-    factResponse.date = today.toISOString().split("T")[0]
+    factResponse.date = today.toISOString().split("T")[0];
 
-    return Response.json(factResponse)
+    return NextResponse.json(factResponse);
   } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: 'Failed to fetch Todays Fact data. Error occurred.' }), {
-      status: 500,
-    });
+    console.error("Error fetching today's fact:", error);
+
+    if (error instanceof HttpException) {
+      return NextResponse.json({ error: error.message, errorCode: error.errorCode, errors: error.errors }, { status: error.statusCode });
+    }
+    return NextResponse.json({ error: 'Internal Server Error', errorCode: HttpErrorCode.FETCH_FAILED }, { status: 500 });
   }
 }
