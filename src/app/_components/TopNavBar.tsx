@@ -32,7 +32,7 @@ export default function TopNavBar() {
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/")
               ? "border-grey dark:border-white"
-              : "border-transparent hover:border-black dark:hover:border-white"
+              : "border-transparent hover:border-grey dark:hover:border-white"
           }`}
         >
           home
@@ -42,11 +42,22 @@ export default function TopNavBar() {
           href="/games"
           className={`border-b-2 mx-1.5 sm:mx-6 ${
             useActivePath("/games")
-              ? "border-black dark:border-white"
-              : "border-transparent hover:border-black dark:hover:border-white"
+              ? "border-grey dark:border-white"
+              : "border-transparent hover:border-grey dark:hover:border-white"
           }`}
         >
           games
+        </Link>
+
+        <Link
+          href="/about"
+          className={`border-b-2 mx-1.5 sm:mx-6 ${
+            useActivePath("/about")
+              ? "border-grey dark:border-white"
+              : "border-transparent hover:border-grey dark:hover:border-white"
+          }`}
+        >
+          about
         </Link>
 
         <HiOutlineUserCircle className="h-6 w-6 mx-1.5 sm:mx-6 cursor-pointer" />
