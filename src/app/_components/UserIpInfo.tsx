@@ -17,7 +17,7 @@ export default function UserIpInfo() {
       const userIp = await userIpResponse.text();
 
       // API call to retrieve more information from the user IP
-      const ipInfoResponse = await fetch("/api/IpInfo", {
+      const ipInfoResponse = await fetch("/api/ip-info", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
