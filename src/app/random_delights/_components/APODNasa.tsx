@@ -37,7 +37,7 @@ export default function APODNasa() {
           <>
             <div className="relative">
               <Image
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-cover hover:scale-105 transform transition-all duration-300"
                 src={apodData.url}
                 alt="Next.js logo"
                 width={180}
@@ -63,13 +63,20 @@ export default function APODNasa() {
                 <button
                   type="button"
                   className="items-center text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-md text-xs px-3 py-2 text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 me-2"
+                  disabled
                 >
                   Read More
                 </button>
               </div>
               <div className="flex justify-between items-center mt-2">
                 <div className="flex items-center">
-                  <SiNasa className="text-5xl" style={{ color: "grey" }} />
+                  <a
+                    href="https://api.nasa.gov/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <SiNasa className="text-5xl text-gray-500 hover:text-gray-700" />
+                  </a>
                 </div>
                 <span className="text-gray-600">{apodData?.date}</span>
               </div>
