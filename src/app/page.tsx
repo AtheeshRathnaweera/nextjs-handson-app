@@ -1,7 +1,5 @@
 import "server-only";
 
-import { FaGithub } from "react-icons/fa";
-
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] gap-10 sm:p-20">
@@ -24,18 +22,6 @@ export default function Home() {
           always something new to discover. Enjoy the ride!
         </p>
       </div>
-
-      <footer className="row-start-4 flex gap-6 flex-wrap items-center justify-center mt-16">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/AtheeshRathnaweera/nextjs-handson-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub className="text-2xl" />
-          Go to the project →
-        </a>
-      </footer>
     </div>
   );
 }

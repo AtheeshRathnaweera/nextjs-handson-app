@@ -5,6 +5,7 @@ import "./globals.css";
 import TopNavBar from "./_components/TopNavBar";
 import { Providers } from "./providers";
 import UserIpInfo from "./_components/UserIpInfo";
+import Footer from "./_components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,16 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} font-sans antialiased`}>
         <Providers>
           <TopNavBar />
           <UserIpInfo />
           <main className="flex flex-col main-content">{children}</main>
         </Providers>
+        <Footer />
       </body>
     </html>
   );
