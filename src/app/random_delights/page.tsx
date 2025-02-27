@@ -1,6 +1,7 @@
 import "server-only";
 
 import APODNasa from "./_components/APODNasa";
+import { Suspense } from "react";
 
 export default function Page() {
   return (
@@ -16,7 +17,9 @@ export default function Page() {
         </p>
       </div>
       <div className="flex">
-        <APODNasa/>
+        <Suspense fallback={<p>Loading APOD...</p>}>
+          <APODNasa />
+        </Suspense>
       </div>
     </div>
   );
